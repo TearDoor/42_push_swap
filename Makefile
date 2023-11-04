@@ -6,7 +6,7 @@
 #    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:45:26 by tkok-kea          #+#    #+#              #
-#    Updated: 2023/11/04 18:18:05 by tkok-kea         ###   ########.fr        #
+#    Updated: 2023/11/04 21:07:54 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,16 @@ CLAGS =	-Wall -Werror -Wextra
 RM =	rm -rf
 
 all:	${NAME}
+		@echo "${NAME} compile complete."
 
 ${NAME}: 	${OBJS}
 			@echo "Making libft"
 			@${MAKE} -C ./libft bonus
-			@${MAKE} -C ./libft/ft_printf
-			@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a ./libft/ft_printf/libftprintf.a -o ${NAME}
+			@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
 
 clean:
 			@echo "Cleaning libft"
 			@${MAKE} -C ./libft fclean
-			@${MAKE} -C ./libft/ft_printf fclean
 			@echo "Cleaning temporary files"
 			@${RM} ${OBJS}
 

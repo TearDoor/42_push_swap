@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/18 14:42:35 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/18 20:17:31 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_stack	*stack_a;
-
-	a = init_stack(argc, argv);
-	
-	return (0);
+	if (!del || !lst)
+		return ;
+	(del)(lst->content);
+	free(lst);
 }

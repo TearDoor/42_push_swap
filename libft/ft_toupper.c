@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/10 16:50:17 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/11 22:50:31 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+int	ft_toupper(int c)
 {
-	t_stack	*stack_a;
-
-	a = init_stack(argc, argv);
-	
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }

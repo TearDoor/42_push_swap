@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/09 02:07:04 by teardoor          #+#    #+#             */
+/*   Updated: 2023/10/09 02:23:10 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+int	ft_isascii(int c)
 {
-	t_stack	*stack_a;
-
-	a = init_stack(argc, argv);
-	
-	return (0);
+	return ((c >= 0) && (c <= 127));
 }

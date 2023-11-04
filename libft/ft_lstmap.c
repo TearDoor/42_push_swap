@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/18 15:23:21 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/18 16:19:29 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_stack	*stack_a;
+	t_list	*new;
+	t_list	*temp;
 
-	a = init_stack(argc, argv);
-	
-	return (0);
+	if (!f || !lst || !del)
+		return (NULL);
+	new = NULL;
+	while (lst)
+	{
+		temp = ft_lstnew((f)(lst->content));
+		if (!temp)
+		{
+			ft_lstclear(&new, del);
+			free(temp);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, temp);
+		lst = lst->next;
+	}
+	return (new);
 }

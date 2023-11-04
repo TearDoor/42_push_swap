@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/16 20:32:09 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/11/02 16:54:21 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_stack	*stack_a;
+	size_t	len;
+	size_t	i;
+	char	*mstr;
 
-	a = init_stack(argc, argv);
-	
-	return (0);
+	if (!f || !s)
+		return (NULL);
+	len = ft_strlen(s);
+	mstr = (char *)malloc((sizeof(*mstr) * len + 1));
+	if (mstr != NULL)
+	{
+		i = 0;
+		while (i < len)
+		{
+			mstr[i] = f(i, s[i]);
+			i++;
+		}
+		mstr[i] = 0;
+	}
+	return (mstr);
 }

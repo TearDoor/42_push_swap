@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/15 23:01:29 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/11/02 16:56:08 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack	*stack_a;
+	size_t	len1;
+	size_t	len2;
+	char	*join;
 
-	a = init_stack(argc, argv);
-	
-	return (0);
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	join = (char *)malloc(sizeof(*join) * (len1 + len2 + 1));
+	if (join == NULL)
+		return (join);
+	ft_strlcpy(join, s1, len1 + 1);
+	ft_strlcpy(join + len1, s2, len2 +1);
+	return (join);
 }

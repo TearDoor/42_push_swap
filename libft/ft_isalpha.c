@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/04 16:42:37 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/04 17:00:44 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+int	ft_isalpha(int c)
 {
-	t_stack	*stack_a;
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+}
 
-	a = init_stack(argc, argv);
-	
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%d", ft_isalpha('4'));
+
 	return (0);
 }
+*/

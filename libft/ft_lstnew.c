@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/17 16:23:40 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/18 20:16:30 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	t_stack	*stack_a;
+	t_list	*new;
 
-	a = init_stack(argc, argv);
-	
-	return (0);
+	new = (t_list *)malloc(sizeof(*new));
+	if (new == NULL)
+		return (new);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

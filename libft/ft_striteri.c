@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/17 15:05:59 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/18 20:18:33 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	t_stack	*stack_a;
+	size_t	i;
+	size_t	len;
 
-	a = init_stack(argc, argv);
-	
-	return (0);
+	if (!f || !s)
+		return ;
+	len = ft_strlen(s);
+	i = 0;
+	while (i < len)
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

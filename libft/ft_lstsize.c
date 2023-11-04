@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:31:38 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/10/17 17:32:54 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/10/17 17:37:26 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-t_stack	init_stack;
-
-int	main(int argc, char **argv)
+int	ft_lstsize(t_list *lst)
 {
-	t_stack	*stack_a;
+	size_t	i;
+	t_list	*curr;
 
-	a = init_stack(argc, argv);
-	
-	return (0);
+	i = 0;
+	if (lst)
+	{
+		i++;
+		curr = lst;
+		while (curr->next)
+		{
+			i++;
+			curr = curr->next;
+		}
+	}
+	return (i);
 }

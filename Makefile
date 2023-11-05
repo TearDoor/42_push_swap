@@ -6,7 +6,7 @@
 #    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:45:26 by tkok-kea          #+#    #+#              #
-#    Updated: 2023/11/04 21:07:54 by tkok-kea         ###   ########.fr        #
+#    Updated: 2023/11/05 21:24:03 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ OBJS = ${SRCS:.c=.o}
 
 CC =	gcc
 
-CLAGS =	-Wall -Werror -Wextra
+CFLAGS =	-Wall -Werror -Wextra
+
+SANITIZE	= -fsanitize=address -g
 
 RM =	rm -rf
 
@@ -28,7 +30,7 @@ all:	${NAME}
 ${NAME}: 	${OBJS}
 			@echo "Making libft"
 			@${MAKE} -C ./libft bonus
-			@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+			${CC} ${CFLAGS} ${OBJS} ${SANITIZE} ./libft/libft.a -o ${NAME}
 
 clean:
 			@echo "Cleaning libft"

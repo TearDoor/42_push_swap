@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:59:44 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/05 21:06:06 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "../libft/libft.h"
 
 

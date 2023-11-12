@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/12 21:01:19 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/11/12 20:58:42 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/11/12 21:01:50 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../include/push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "../libft/libft.h"
-
-typedef struct s_stack
-{
-	int				num;
-	int				index;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_stack;
-
-void	ft_error(void);
-
-#endif
+void	ft_error(void)
+{	
+	write(2, "Error\n", 6);
+	exit(1);
+}

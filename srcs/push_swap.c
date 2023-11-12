@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/05 21:27:38 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:10:34 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_error()
-{	
-	write(2, "Error\n", 6);
-	exit(1);
+t_stack	*new_node(int n)
+{
+	t_stack	*new;
+
+	new = (t_stack *)malloc((sizeof(*new)));
+	if (!new)
+		return (NULL);
+	new->num = n;
+	new->index = 0;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
 
 int	ft_atoi_check(char *s)
@@ -45,6 +53,20 @@ int	ft_atoi_check(char *s)
 	return (nbr * neg);
 }
 
+void	free_strings(char **str)
+{
+	int	i;
+
+	if (!*str)
+		return ;
+	i = 0;
+	while (str[i])
+		i++;
+	while (i >= 0)
+		free(str[i--]);
+	free(str);
+}
+
 t_stack	*split_string(char *argv)
 {
 	int		i;
@@ -60,7 +82,7 @@ t_stack	*split_string(char *argv)
 		new_num = ft_atoi_check(n_str[i]);
 		i++;
 	}
-	//free(n_str);
+	free_strings(n_str);
 	return (stack_a);
 }
 
@@ -68,7 +90,7 @@ t_stack	*init_stack(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	int		i;
-	
+
 	i = 1;
 	stack_a = NULL;
 	if (argc < 2)
@@ -83,6 +105,5 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 
 	stack_a = init_stack(argc, argv);
-	
 	return (0);
 }

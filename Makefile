@@ -6,7 +6,7 @@
 #    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:45:26 by tkok-kea          #+#    #+#              #
-#    Updated: 2023/11/05 21:24:03 by tkok-kea         ###   ########.fr        #
+#    Updated: 2023/11/12 20:52:25 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all:	${NAME}
 ${NAME}: 	${OBJS}
 			@echo "Making libft"
 			@${MAKE} -C ./libft bonus
-			${CC} ${CFLAGS} ${OBJS} ${SANITIZE} ./libft/libft.a -o ${NAME}
+			${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
 
 clean:
 			@echo "Cleaning libft"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/14 19:40:02 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/15 01:00:10 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ t_stack	*init_stack(int argc, char **argv);
 t_stack	*ft_stacknew(int n);
 void	ft_stackaddback(t_stack **stack, t_stack *new);
 void	ft_stackclear(t_stack **stack);
-void	ft_printstack(t_stack *stack);
 
 /* to check stack has duplicates or is sorted*/
 int	stack_isdup(t_stack *stack);
 int	stack_issorted(t_stack *stack);
+
+/* print out stack for error checking during init */
+void	ft_printstack(t_stack *stack);
 
 #endif

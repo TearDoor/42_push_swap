@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:14:05 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/14 13:54:00 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/15 00:59:24 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_stackclear(t_stack **stack)
 	}
 }
 
-void	ft_printstack(t_stack *stack)
+/* void	ft_printstack(t_stack *stack)
 {
 	t_stack	*curr;
 
@@ -77,4 +77,4 @@ void	ft_printstack(t_stack *stack)
 		ft_putchar_fd('\n', 1);
 		curr = curr->next;
 	}
-}
+} */

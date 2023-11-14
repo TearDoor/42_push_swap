@@ -6,11 +6,11 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:58:42 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/12 21:01:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:18:25 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	ft_error(void)
 {	

@@ -1,26 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/14 20:53:01 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/11/14 19:38:32 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	stack_isdup(t_stack *stack)
 {
-	t_stack	*stack_a;
+	t_stack *temp;
 
-	stack_a = init_stack(argc, argv);
-	if(!stack_a || stack_isdup(stack_a))
-		ft_error();
-	if (stack_issorted(stack_a))
-		ft_putendl_fd("Is sorted", 1);
-	ft_stackclear(&stack_a);
+	while (stack)
+	{
+		temp = stack->next;
+		while (temp)
+		{
+			if (temp->num == stack->num)
+				return (1);
+			temp = temp->next;
+		}
+		stack = stack->next;
+	}
 	return (0);
+}
+
+int	stack_issorted(t_stack *stack)
+{
+	int	largest;
+
+	largest = stack->num;
+	while (stack)
+	{
+		if (largest > stack->num)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/11/18 18:05:45 by tkok-kea         ###   ########.fr       */
-=======
-/*   Updated: 2023/11/15 01:00:10 by tkok-kea         ###   ########.fr       */
->>>>>>> 10c7a9b4624c07fc28f883dd6d90fa593263c524
+/*   Updated: 2023/11/18 18:24:34 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +35,13 @@ void	ft_stackaddback(t_stack **stack, t_stack *new);
 void	ft_stackclear(t_stack **stack);
 
 /* to check stack has duplicates or is sorted*/
-int	stack_isdup(t_stack *stack);
-int	stack_issorted(t_stack *stack);
+int		stack_isdup(t_stack *stack);
+int		stack_issorted(t_stack *stack);
 
 /* operations */
 void	op_sa(t_stack **a);
+
+/* some functions for debugging */
+void	ft_printstack(t_stack *stack);
 
 #endif

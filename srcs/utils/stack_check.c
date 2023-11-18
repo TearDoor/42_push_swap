@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/14 19:38:32 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:24:11 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	stack_isdup(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	while (stack)
 	{

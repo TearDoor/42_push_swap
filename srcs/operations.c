@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:12:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/18 18:08:32 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:23:48 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	op_sa(t_stack **a)
 
 void	op_sb(t_stack **b)
 {
-	if(swap(b) == -1)
+	if (swap(b) == -1)
 		return ;
 	ft_putendl_fd("sb", 1);
 }
-

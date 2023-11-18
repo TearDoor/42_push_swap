@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
+#    By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 20:26:50 by tkok-kea          #+#    #+#              #
-#    Updated: 2023/11/14 14:10:57 by tkok-kea         ###   ########.fr        #
+#    Updated: 2023/11/15 00:52:49 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 		@$(AR) $(NAME) $(OBJS)
 
-.c.o:
-		@$(CC) $(CFLAGS) -c $< -I ./
+%.o:	%.c
+		@$(CC) $(CFLAGS) -c $<
 
 clean:
 		@$(RM) $(OBJS) $(BOBJS)

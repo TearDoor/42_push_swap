@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/18 18:05:30 by tkok-kea         ###   ########.fr       */
+/*   Created: 2023/11/15 17:12:25 by tkok-kea          #+#    #+#             */
+/*   Updated: 2023/11/18 18:08:32 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	swap(t_stack **stack)
 {
-	t_stack	*stack_a;
+	t_stack	*temp;
 
-	stack_a = init_stack(argc, argv);
-	if(!stack_a || stack_isdup(stack_a))
-		ft_error();
-	if (stack_issorted(stack_a))
-		ft_putendl_fd("Is sorted", 1);
-	op_sa(&stack_a);
-	ft_printstack(stack_a);
-	ft_stackclear(&stack_a);
+	if (!*stack || !(*stack)->next)
+		return (-1);
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp->next = (*stack)->next;
+	(*stack)->next = temp;
 	return (0);
 }
+
+void	op_sa(t_stack **a)
+{
+	if (swap(a) == -1)
+		return ;
+	ft_putendl_fd("sa", 1);
+}
+
+void	op_sb(t_stack **b)
+{
+	if(swap(b) == -1)
+		return ;
+	ft_putendl_fd("sb", 1);
+}
+

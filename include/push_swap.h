@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/14 19:40:02 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:05:45 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ void	ft_printstack(t_stack *stack);
 /* to check stack has duplicates or is sorted*/
 int	stack_isdup(t_stack *stack);
 int	stack_issorted(t_stack *stack);
+
+/* operations */
+void	op_sa(t_stack **a);
 
 #endif

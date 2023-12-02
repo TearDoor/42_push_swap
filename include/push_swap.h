@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/18 18:24:34 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:38:55 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
+# include <fcntl.h>
 # include "../libft/libft.h"
 
 typedef struct s_stack
@@ -23,7 +25,6 @@ typedef struct s_stack
 	int				num;
 	int				index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
 void	ft_error(void);

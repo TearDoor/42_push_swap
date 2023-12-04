@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:11:47 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/28 17:00:31 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/04 21:01:48 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,10 @@ char	*get_next_line(int fd)
 	char		*newline;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		ft_printf("a");
 		return (NULL);
+	}
 	buff[fd] = read_til_newline(fd, buff[fd]);
 	if (!buff[fd])
 		return (NULL);

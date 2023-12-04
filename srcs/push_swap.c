@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:34:59 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/04 21:10:11 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	int		fd;
 
-	fd = open("test.txt", O_RDONLY);
 	stack_a = init_stack(argc, argv);
 	if (!stack_a || stack_isdup(stack_a))
 		ft_error();

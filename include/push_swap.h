@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 15:38:55 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:44:31 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ int		stack_issorted(t_stack *stack);
 
 /* operations */
 void	op_sa(t_stack **a);
+void	op_sb(t_stack **b);
+void	op_ss(t_stack **a, t_stack **b);
+void	op_pa(t_stack **a, t_stack **b);
+void	op_pb(t_stack **a, t_stack **b);
 
 /* some functions for debugging */
-void	ft_printstack(t_stack *stack);
+void	ft_print_both_stacks(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:14:05 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 15:39:33 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:08:41 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,17 @@ void	ft_printstack(t_stack *stack)
 	while (curr)
 	{
 		ft_putnbr_fd(curr->num, 1);
-		ft_putchar_fd('\n', 1);
+		ft_putchar_fd(' ', 1);
 		curr = curr->next;
 	}
+}
+
+void	ft_print_both_stacks(t_stack *a, t_stack *b)
+{
+	ft_printf("Stack A: top -> bottom\n");
+	ft_printstack(a);
+	ft_printf("\n");
+	ft_printf("Stack B: top -> bottom\n");
+	ft_printstack(b);
+	ft_printf("\n");
 }

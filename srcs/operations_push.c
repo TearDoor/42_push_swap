@@ -6,12 +6,13 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:09:36 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/08 18:47:11 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:57:55 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/*adds a new node to top of stack*/
 void	stack_push(t_stack **stack, t_stack *new)
 {
 	if (!stack)
@@ -20,6 +21,7 @@ void	stack_push(t_stack **stack, t_stack *new)
 	*stack = new;
 }
 
+/*removes and returns the top node of a stack*/
 t_stack	*stack_pop(t_stack **stack)
 {
 	t_stack	*top;

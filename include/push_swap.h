@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/08 18:44:31 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:58:57 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ void	op_sb(t_stack **b);
 void	op_ss(t_stack **a, t_stack **b);
 void	op_pa(t_stack **a, t_stack **b);
 void	op_pb(t_stack **a, t_stack **b);
+void	op_ra(t_stack **a);
+void	op_rb(t_stack **b);
+void	op_rr(t_stack **a, t_stack **b);
+void	op_rra(t_stack **a);
+void	op_rrb(t_stack **b);
+void	op_rrr(t_stack **a, t_stack **b);
 
 /* some functions for debugging */
 void	ft_print_both_stacks(t_stack *a, t_stack *b);

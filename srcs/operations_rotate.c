@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 20:53:51 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/10 18:47:31 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:36:31 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	op_rr(t_stack **a, t_stack **b)
 		return ;
 	rotate(a);
 	rotate(b);
-	ft_putendl_fd("ss", 1);
+	ft_putendl_fd("rr", 1);
 }

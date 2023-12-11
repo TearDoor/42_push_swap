@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/10 18:59:07 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:47:30 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	op_pa(&stack_a, &stack_b);
 	op_pa(&stack_a, &stack_b);
 	ft_print_both_stacks(stack_a, stack_b);
-	op_rrb(&stack_b);
+	op_rrr(&stack_a, &stack_b);
 	ft_print_both_stacks(stack_a, stack_b);
 	op_rrb(&stack_b);
 	ft_print_both_stacks(stack_a, stack_b);

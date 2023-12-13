@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:14:05 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/08 19:08:41 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:56:04 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void	ft_printstack(t_stack *stack)
 	}
 }
 
-void	ft_print_both_stacks(t_stack *a, t_stack *b)
+void	ft_print_both_stacks(t_stack **stacks)
 {
 	ft_printf("Stack A: top -> bottom\n");
-	ft_printstack(a);
+	ft_printstack(stacks[0]);
 	ft_printf("\n");
 	ft_printf("Stack B: top -> bottom\n");
-	ft_printstack(b);
+	ft_printstack(stacks[1]);
 	ft_printf("\n");
 }

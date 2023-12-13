@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:12:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/08 18:42:24 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:17:07 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ int	swap(t_stack **stack)
 	return (0);
 }
 
-void	op_sa(t_stack **a)
+void	op_sa(t_stack **stacks)
 {
-	if (swap(a) == -1)
+	if (swap(&stacks[0]) == -1)
 		return ;
 	ft_putendl_fd("sa", 1);
 }
 
-void	op_sb(t_stack **b)
+void	op_sb(t_stack **stacks)
 {
-	if (swap(b) == -1)
+	if (swap(&stacks[1]) == -1)
 		return ;
 	ft_putendl_fd("sb", 1);
 }
 
-void	op_ss(t_stack **a, t_stack **b)
+void	op_ss(t_stack **stacks)
 {
-	if (!*a || !(*a)->next || !*b || !(*b)->next)
+	if (!stacks[0] || !stacks[0]->next || !stacks[1] || !stacks[1]->next)
 		return ;
-	swap(a);
-	swap(b);
+	swap(&stacks[0]);
+	swap(&stacks[1]);
 	ft_putendl_fd("ss", 1);
 }

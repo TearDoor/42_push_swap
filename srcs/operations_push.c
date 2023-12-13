@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:09:36 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/10 18:57:55 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:49:18 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ t_stack	*stack_pop(t_stack **stack)
 	return (top);
 }
 
-void	op_pa(t_stack **a, t_stack **b)
+void	op_pa(t_stack *stacks[2])
 {
-	if (!*a)
+	if (!stacks[1])
 		return ;
-	stack_push(b, stack_pop(a));
+	stack_push(&stacks[0], stack_pop(&stacks[1]));
 	ft_putendl_fd("pa", 1);
 }
 
-void	op_pb(t_stack **a, t_stack **b)
+void	op_pb(t_stack *stacks[2])
 {
-	if (!*b)
+	if (!stacks[0])
 		return ;
-	stack_push(a, stack_pop(b));
+	stack_push(&stacks[1], stack_pop(&stacks[0]));
 	ft_putendl_fd("pb", 1);
 }

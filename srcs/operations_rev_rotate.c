@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:55:36 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/11 21:46:36 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:05:13 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,25 @@ int	rev_rotate(t_stack **stack)
 	return (0);
 }
 
-void	op_rra(t_stack **a)
+void	op_rra(t_stack **stacks)
 {
-	if (rev_rotate(a) == -1)
+	if (rev_rotate(&stacks[0]) == -1)
 		return ;
 	ft_printf("rra\n");
 }
 
-void	op_rrb(t_stack **b)
+void	op_rrb(t_stack **stacks)
 {
-	if (rev_rotate(b) == -1)
+	if (rev_rotate(&stacks[1]) == -1)
 		return ;
 	ft_printf("rrb\n");
 }
 
-void	op_rrr(t_stack **a, t_stack **b)
+void	op_rrr(t_stack **stacks)
 {
-	if (!*a || !(*a)->next || !*b || !(*b)->next)
+	if (!stacks[0] || !stacks[0]->next || !stacks[1] || !stacks[1]->next)
 		return ;
-	rev_rotate(a);
-	rev_rotate(b);
+	rev_rotate(&stacks[0]);
+	rev_rotate(&stacks[1]);
 	ft_putendl_fd("rrr", 1);
 }

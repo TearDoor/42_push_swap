@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/13 19:36:11 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:22:26 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack *stack_pair[2];
+	t_stack	*stack_pair[2];
 
 	stack_pair[0] = init_stack(argc, argv);
 	stack_pair[1] = NULL;

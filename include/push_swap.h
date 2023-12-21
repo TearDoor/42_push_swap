@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/13 17:01:06 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:20:16 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 
 void	ft_error(void);
 t_stack	*init_stack(int argc, char **argv);
+int		*find_lis(int *num, int num_size, int *lis_max);
 
 /* functions for initializing and clearing stack */
 t_stack	*ft_stacknew(int n);

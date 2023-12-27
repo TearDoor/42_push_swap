@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/21 16:25:11 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/27 19:04:57 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ int	main(int argc, char **argv)
 	if (stack_issorted(stack_pair[0]))
 		ft_putendl_fd("Is sorted", 1);
 	ft_print_both_stacks(stack_pair);
-	op_pb(stack_pair);
-	op_pb(stack_pair);
-	op_pb(stack_pair);
 	ft_print_both_stacks(stack_pair);
 	op_ss(stack_pair);
 	ft_print_both_stacks(stack_pair);
+	ft_printf("%d\n", ft_stack_size(stack_pair[0]));
 	ft_stackclear(&stack_pair[0]);
 	return (0);
 }

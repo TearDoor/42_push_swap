@@ -6,15 +6,35 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:35:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/21 16:17:53 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:57:50 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-/* function to find LIS (Largest Increasing Subsequence)
+/* find_lis: function to find LIS (Largest Increasing Subsequence)
 in stack A so that we dont need to push those numbers to stack B */
 
+/* receives a stack of numbers and it's size to return an allocated array */
+int	*stack_to_array(t_stack *stack, int size)
+{
+	int	*num;
+	int	i;
+
+	num = (int *)malloc(sizeof(int) * size);
+	if (!num)
+		ft_error();
+	i = 0;
+	while (stack != NULL)
+	{
+		num[i++] = stack->num;
+		stack = stack->next;
+	}
+	return (num);
+}
+
+/* finds numbers from stack A from the bottom to construct a LIS
+because we start pushing to B from the top of A */
 int	*create_lis(int *num, int num_size, int *lis_len, int lis_max)
 {
 	int	i;
@@ -37,7 +57,7 @@ int	*create_lis(int *num, int num_size, int *lis_len, int lis_max)
 	return (lis);
 }
 
-/* allocates an array same size as num and initialize it with 1s */
+/* allocates an array same size as num and initialize it with integer 1 */
 int	*lis_len_init(int size)
 {
 	int	i;
@@ -55,6 +75,8 @@ int	*lis_len_init(int size)
 	return (lis_len);
 }
 
+/* finds the length of LIS and that is stored in lis_max 
+returns an allocated array created with create_lis */
 int	*find_lis(int *num, int num_size, int *lis_max)
 {
 	int	*lis_len;

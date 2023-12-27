@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:12:27 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/18 18:07:32 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:51:53 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi_check(char *s)
 	return (nbr * neg);
 }
 
-void	free_strings(char **str)
+static void	free_strings(char **str)
 {
 	int	i;
 
@@ -53,6 +53,7 @@ void	free_strings(char **str)
 	free(str);
 }
 
+/*splits arguments passed as a string into numbers */
 t_stack	*split_string(char *argv)
 {
 	int		i;

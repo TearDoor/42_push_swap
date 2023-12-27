@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/18 18:24:11 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/27 19:03:18 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,17 @@ int	stack_issorted(t_stack *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+int	ft_stack_size(t_stack *stack)
+{
+	int i;
+
+	i = 0;
+	while(stack != NULL)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
 }

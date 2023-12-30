@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:14:05 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/27 18:58:49 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:15:41 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_stackclear(t_stack **stack)
 	}
 }
 
-static void	ft_printstack(t_stack *stack)
+void	ft_printstack(t_stack *stack)
 {
 	t_stack	*curr;
 

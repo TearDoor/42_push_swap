@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/27 19:03:39 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:15:50 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	op_rrb(t_stack **stacks);
 void	op_rrr(t_stack **stacks);
 
 /* some functions for debugging */
+void	ft_printstack(t_stack *stack);
 void	ft_print_both_stacks(t_stack **stacks);
 
 #endif

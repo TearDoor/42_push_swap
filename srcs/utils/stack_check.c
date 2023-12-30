@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/27 19:03:18 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:18:12 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	stack_issorted(t_stack *stack)
 	{
 		if (largest > stack->num)
 			return (0);
+		else
+			largest = stack->num;
 		stack = stack->next;
 	}
 	return (1);

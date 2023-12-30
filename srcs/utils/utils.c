@@ -6,14 +6,14 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:58:42 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/11/13 17:18:25 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:45:50 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 void	ft_error(void)
-{	
+{
 	write(2, "Error\n", 6);
 	exit(1);
 }

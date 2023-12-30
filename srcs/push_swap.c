@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/30 21:22:53 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:45:22 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	max_num_index(t_stack *stack)
 {
 	int	max;
-	int i;
+	int	i;
 	int	max_i;
 
 	max = stack->num;
@@ -38,8 +38,8 @@ int	max_num_index(t_stack *stack)
 /* makes sure largest num at bottom then swaps top 2 if necessary */
 void	sort_three(t_stack **stack)
 {
-	int max_i;
-	
+	int	max_i;
+
 	max_i = max_num_index(*stack);
 	if (max_i == 0)
 		op_ra(stack);
@@ -51,7 +51,7 @@ void	sort_three(t_stack **stack)
 
 static void	sort(t_stack *stack)
 {
-	t_stack *stack_pair[2];
+	t_stack	*stack_pair[2];
 	int		stk_size;
 
 	stack_pair[0] = stack;

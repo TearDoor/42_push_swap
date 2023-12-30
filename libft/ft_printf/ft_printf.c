@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:18:03 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:33:23 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:43:51 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int	parse_flags(const char *s, va_list args)
 	int		len;
 
 	flags = set_flag((char *)s);
-	f_conv[0] = ft_print_char;
-	f_conv[1] = ft_print_string;
-	f_conv[2] = ft_print_ptr;
-	f_conv[3] = ft_print_dec;
-	f_conv[4] = ft_print_dec;
-	f_conv[5] = ft_print_u;
-	f_conv[6] = ft_print_hex;
-	f_conv[7] = ft_print_hex;
-	f_conv[8] = ft_print_char;
+	f_conv[0] = print_char;
+	f_conv[1] = print_string;
+	f_conv[2] = print_ptr;
+	f_conv[3] = print_dec;
+	f_conv[4] = print_dec;
+	f_conv[5] = print_u;
+	f_conv[6] = print_hex;
+	f_conv[7] = print_hex;
+	f_conv[8] = print_char;
 	i = -1;
 	while (SPECIFIER[++i])
 		if (flags.spec == SPECIFIER[i])

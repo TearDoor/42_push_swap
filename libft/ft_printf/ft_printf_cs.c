@@ -6,14 +6,14 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 14:53:45 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:22:34 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:42:57 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /* possible flags : -,width */
-int	ft_print_char(va_list args, t_flags flags)
+int	print_char(va_list args, t_flags flags)
 {
 	char	c;
 	int		len;
@@ -33,7 +33,7 @@ int	ft_print_char(va_list args, t_flags flags)
 }
 
 /*possible flags : -,precision,width */
-int	ft_print_string(va_list args, t_flags flags)
+int	print_string(va_list args, t_flags flags)
 {
 	char	*s;
 	int		len;

@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 20:37:34 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:22:23 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:42:37 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_put_nbr(char *nbr, int isneg, t_flags fl)
 	return (len);
 }
 
-int	ft_print_dec(va_list args, t_flags fl)
+int	print_dec(va_list args, t_flags fl)
 {
 	int		i;
 	long	u;
@@ -100,7 +100,7 @@ int	ft_print_dec(va_list args, t_flags fl)
 	return (len);
 }
 
-int	ft_print_u(va_list args, t_flags fl)
+int	print_u(va_list args, t_flags fl)
 {
 	unsigned int	u;
 	int				len;

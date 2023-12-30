@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:18:14 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:22:29 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:42:43 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	put_hex(char *nbr, t_flags fl, int x_len)
 	return (len);
 }
 
-int	ft_print_hex(va_list args, t_flags fl)
+int	print_hex(va_list args, t_flags fl)
 {
 	unsigned int	x;
 	int				len;

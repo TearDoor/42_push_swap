@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:08:42 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:22:31 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:42:47 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	ptr_len(unsigned long p)
 	return (len);
 }
 
-int	ft_print_ptr(va_list args, t_flags flags)
+int	print_ptr(va_list args, t_flags flags)
 {
 	unsigned long	p;
 	int				len;

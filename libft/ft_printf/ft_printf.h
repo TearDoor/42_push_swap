@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:57:51 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/02 16:28:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2023/12/30 21:43:15 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ typedef struct s_flags
 
 /* Main printf and sub functions for each specifier */
 int		ft_printf(const char *format, ...);
-int		ft_print_char(va_list args, t_flags flags);
-int		ft_print_string(va_list args, t_flags flags);
-int		ft_print_ptr(va_list args, t_flags flags);
-int		ft_print_dec(va_list args, t_flags fl);
-int		ft_print_u(va_list args, t_flags fl);
-int		ft_print_hex(va_list args, t_flags fl);
+int		print_char(va_list args, t_flags flags);
+int		print_string(va_list args, t_flags flags);
+int		print_ptr(va_list args, t_flags flags);
+int		print_dec(va_list args, t_flags fl);
+int		print_u(va_list args, t_flags fl);
+int		print_hex(va_list args, t_flags fl);
 
 /* String printing functions */
 int		ft_putchar2(char c);

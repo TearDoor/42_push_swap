@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:09:36 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/13 16:49:18 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/06 00:31:54 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack	*stack_pop(t_stack **stack)
 	return (top);
 }
 
-void	op_pa(t_stack *stacks[2])
+void	op_pa(t_stack **stacks)
 {
 	if (!stacks[1])
 		return ;
@@ -41,7 +41,7 @@ void	op_pa(t_stack *stacks[2])
 	ft_putendl_fd("pa", 1);
 }
 
-void	op_pb(t_stack *stacks[2])
+void	op_pb(t_stack **stacks)
 {
 	if (!stacks[0])
 		return ;

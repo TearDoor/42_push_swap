@@ -6,11 +6,25 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/30 21:45:22 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:07:08 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	sort_big(t_stack *stack_a, int stk_size)
+{
+	t_stack	*stack_pair[2];
+
+	stack_pair[0] = stack_a;
+	stack_pair[1] = NULL;
+	while (stk_size > 3 && !stack_issorted(stack_pair[0]))
+	{
+		op_pb(stack_pair);
+		stk_size -= 1;
+	}
+	return ;
+}
 
 /* returns the index of the biggest number in a stack */
 int	max_num_index(t_stack *stack)
@@ -36,31 +50,30 @@ int	max_num_index(t_stack *stack)
 }
 
 /* makes sure largest num at bottom then swaps top 2 if necessary */
-void	sort_three(t_stack **stack)
+void	sort_three(t_stack *stack)
 {
 	int	max_i;
 
-	max_i = max_num_index(*stack);
+	max_i = max_num_index(stack);
 	if (max_i == 0)
-		op_ra(stack);
+		op_ra(&stack);
 	else if (max_i == 1)
-		op_rra(stack);
-	if (!stack_issorted(*stack))
-		op_sa(stack);
+		op_rra(&stack);
+	if (!stack_issorted(stack))
+		op_sa(&stack);
 }
 
 static void	sort(t_stack *stack)
 {
-	t_stack	*stack_pair[2];
 	int		stk_size;
 
-	stack_pair[0] = stack;
-	stack_pair[1] = NULL;
-	stk_size = ft_stack_size(stack_pair[0]);
+	stk_size = ft_stack_size(stack);
 	if (stk_size == 2)
-		op_sa(&stack_pair[0]);
+		op_sa(&stack);
 	else if (stk_size == 3)
-		sort_three(&stack);
+		sort_three(stack);
+	else
+		sort_big(stack, stk_size);
 	return ;
 }
 

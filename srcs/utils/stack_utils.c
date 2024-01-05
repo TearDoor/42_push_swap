@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:14:05 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/30 21:15:41 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/05 21:43:37 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*ft_stacknew(int n)
 	if (!new)
 		ft_error();
 	new->num = n;
-	new->index = 0;
+	new->cost = 0;
 	new->next = NULL;
 	return (new);
 }

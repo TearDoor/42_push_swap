@@ -6,13 +6,13 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/30 21:45:44 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/05 21:56:19 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	stack_isdup(t_stack *stack)
+int	ft_stack_isdup(t_stack *stack)
 {
 	t_stack	*temp;
 
@@ -30,7 +30,7 @@ int	stack_isdup(t_stack *stack)
 	return (0);
 }
 
-int	stack_issorted(t_stack *stack)
+int	ft_stack_issorted(t_stack *stack)
 {
 	int	largest;
 

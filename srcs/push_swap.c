@@ -6,33 +6,103 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/05 22:23:18 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/06 17:28:26 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_stack_assign_cost(t_stack **stack)
+/* calculates the cost for all elements to rotate to the top
+positive means rotations and negative means reverse rotations*/
+void	ft_stack_rotate_cost(t_stack *stack)
 {
 	int	i;
 	int size;
 	int	mid;
-	t_stack	*curr;
 
 	i = 0;
-	size = ft_stack_size(*stack);
+	size = ft_stack_size(stack);
 	mid = size / 2;
-	curr = *stack;
-	while (curr)
+	while (stack)
 	{
 		if (i <= mid)
-			curr->cost = i;
+			stack->cost = i;
 		else
-			curr->cost = i - size;
-		curr = curr->next;
+			stack->cost = i - size;
+		stack = stack->next;
 		i++;
 	}
 	return ;
+}
+
+t_stack	*ft_stack_smallest(t_stack *stack)
+{
+	t_stack *smallest;
+
+	smallest = stack;
+	while(stack)
+	{
+		if (stack->num < smallest->num)
+			smallest = stack;
+		stack = stack->next;
+	}
+	return (smallest);
+}
+
+t_stack	*ft_find_target_btoa(t_stack *stack_a, int nbr)
+{
+	t_stack	*target;
+	t_stack	*curr;
+	
+	target = NULL;
+	curr = stack_a;
+	while (curr)
+	{
+		ft_printf("%d %d\n", nbr, curr->num);
+		if (curr->num > nbr)
+		{
+			if (curr->num < target->num || !target)
+				target = curr;
+		}
+		curr = curr->next;
+	}
+	if (!target)
+		target = ft_stack_smallest(stack_a);
+	return (target);
+}
+
+void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack)
+{
+	int		i;
+	int 	size;
+	int 	mid;
+	t_stack	*target;
+
+	ft_stack_rotate_cost(dst_stack);
+	i = 0;
+	size = ft_stack_size(src_stack);
+	mid = size / 2;
+	while (src_stack)
+	{
+		target = ft_find_target_btoa(dst_stack, src_stack->num);
+		if (i <= mid)
+			src_stack->cost = i;
+		else
+			src_stack->cost = i - size;
+		src_stack = src_stack->next;
+		i++;
+	}
+	return ;
+}
+
+void	ft_b_to_a(t_stack **stacks)
+{
+	while (stacks[1])
+	{
+		ft_stack_total_cost(stacks[1], stacks[0]);
+		ft_print_both_stacks(stacks);
+		op_pa(stacks);
+	}
 }
 
 void	sort_big(t_stack *stack_a, int stk_size)
@@ -49,8 +119,7 @@ void	sort_big(t_stack *stack_a, int stk_size)
 		stk_size -= 1;
 		i++;
 	}
-	ft_stack_assign_cost(&stack_pair[0]);
-	ft_printstack(stack_pair[0]);
+	ft_b_to_a(stack_pair);
 	return ;
 }
 

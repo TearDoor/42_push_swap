@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/05 21:56:08 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:36:18 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
+/* cost stores number of rotations needed to be on top of stack */
 typedef struct s_stack
 {
 	int				num;
@@ -27,7 +28,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void	ft_error(void);
+
 t_stack	*init_stack(int argc, char **argv);
 int		*find_lis(int *num, int num_size, int *lis_max);
 int		ft_stack_size(t_stack *stack);
@@ -57,5 +58,9 @@ void	op_rrr(t_stack **stacks);
 /* some functions for debugging */
 void	ft_printstack(t_stack *stack);
 void	ft_print_both_stacks(t_stack **stacks);
+
+/* utility functions */
+void	ft_error(void);
+int		ft_abs(int num);
 
 #endif

@@ -6,11 +6,48 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/08 20:36:29 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:35:44 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/* returns the index of the biggest number in a stack */
+int	max_num_index(t_stack *stack)
+{
+	int	max;
+	int	i;
+	int	max_i;
+
+	max = stack->num;
+	i = 0;
+	max_i = i;
+	while (stack)
+	{
+		if (stack->num > max)
+		{
+			max = stack->num;
+			max_i = i;
+		}
+		stack = stack->next;
+		i++;
+	}
+	return (max_i);
+}
+
+/* makes sure largest num at bottom then swaps top 2 if necessary */
+void	sort_three(t_stack **stacks)
+{
+	int		max_i;
+
+	max_i = max_num_index(stacks[0]);
+	if (max_i == 0)
+		op_ra(stacks);
+	else if (max_i == 1)
+		op_rra(stacks);
+	if (!ft_stack_issorted(stacks[0]))
+		op_sa(stacks);
+}
 
 /* calculates the cost for all elements to rotate to the top
 positive means rotations and negative means reverse rotations*/
@@ -135,10 +172,36 @@ void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
 			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
 		src_stack->cost.dst = dst_cost;
 		src_stack->cost.total = abs(src_stack->cost.own) + abs(dst_cost);
-		ft_printf("%d total cost : %d\n", src_stack->num, src_stack->cost.total);
 		src_stack = src_stack->next;
 	}
 	return ;
+}
+
+void	ft_rotate_to_top(int rot_a, int rot_b, t_stack **stacks)
+{
+	while (!(rot_a == 0 && rot_b == 0))
+	{
+		if (rot_a > 0)
+		{
+			op_ra(stacks);
+			rot_a -= 1;
+		}
+		else if (rot_a < 0)
+		{
+			op_rra(stacks);
+			rot_a += 1;
+		}
+		if (rot_b > 0)
+		{
+			op_rb(stacks);
+			rot_b -= 1;
+		}
+		else if (rot_b < 0)
+		{
+			op_rrb(stacks);
+			rot_b += 1;
+		}
+	}
 }
 
 void	ft_b_to_a(t_stack **stacks)
@@ -148,19 +211,17 @@ void	ft_b_to_a(t_stack **stacks)
 	while (stacks[1])
 	{
 		ft_stack_total_cost(stacks[1], stacks[0], 'b');
-		ft_print_both_stacks(stacks);
 		cheapest = ft_stack_most(stacks[1], 's', 'c');
+		ft_rotate_to_top(cheapest->cost.dst, cheapest->cost.own, stacks);
 		op_pa(stacks);
 	}
 }
 
-void	sort_big(t_stack *stack_a, int stk_size)
+void	sort_big(t_stack **stack_pair, int stk_size)
 {
-	t_stack	*stack_pair[2];
 	int		i;
+	t_stack	*smallest;
 
-	stack_pair[0] = stack_a;
-	stack_pair[1] = NULL;
 	i = 0;
 	while (stk_size > 3 && !ft_stack_issorted(stack_pair[0]) && i < 2)
 	{
@@ -168,58 +229,29 @@ void	sort_big(t_stack *stack_a, int stk_size)
 		stk_size -= 1;
 		i++;
 	}
+	sort_three(&stack_pair[0]);
 	ft_b_to_a(stack_pair);
+	smallest = ft_stack_most(stack_pair[0], 's', 'n');
+	ft_stack_rotate_cost(stack_pair[0]);
+	ft_rotate_to_top(smallest->cost.own, 0, stack_pair);
 	return ;
 }
 
-/* returns the index of the biggest number in a stack */
-int	max_num_index(t_stack *stack)
-{
-	int	max;
-	int	i;
-	int	max_i;
-
-	max = stack->num;
-	i = 0;
-	max_i = i;
-	while (stack)
-	{
-		if (stack->num > max)
-		{
-			max = stack->num;
-			max_i = i;
-		}
-		stack = stack->next;
-		i++;
-	}
-	return (max_i);
-}
-
-/* makes sure largest num at bottom then swaps top 2 if necessary */
-void	sort_three(t_stack *stack)
-{
-	int	max_i;
-
-	max_i = max_num_index(stack);
-	if (max_i == 0)
-		op_ra(&stack);
-	else if (max_i == 1)
-		op_rra(&stack);
-	if (!ft_stack_issorted(stack))
-		op_sa(&stack);
-}
 
 static void	sort(t_stack *stack)
 {
+	t_stack	*stack_pair[2];
 	int		stk_size;
 
+	stack_pair[0] = stack;
+	stack_pair[1] = NULL;
 	stk_size = ft_stack_size(stack);
 	if (stk_size == 2)
-		op_sa(&stack);
+		op_sa(&stack_pair[0]);
 	else if (stk_size == 3)
-		sort_three(stack);
+		sort_three(stack_pair);
 	else
-		sort_big(stack, stk_size);
+		sort_big(stack_pair, stk_size);
 	return ;
 }
 

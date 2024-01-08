@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/06 17:28:26 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:36:29 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ positive means rotations and negative means reverse rotations*/
 void	ft_stack_rotate_cost(t_stack *stack)
 {
 	int	i;
-	int size;
+	int	size;
 	int	mid;
 
 	i = 0;
@@ -26,81 +26,130 @@ void	ft_stack_rotate_cost(t_stack *stack)
 	while (stack)
 	{
 		if (i <= mid)
-			stack->cost = i;
+			stack->cost.own = i;
 		else
-			stack->cost = i - size;
+			stack->cost.own = i - size;
 		stack = stack->next;
 		i++;
 	}
 	return ;
 }
 
-t_stack	*ft_stack_smallest(t_stack *stack)
+int	ft_compare(int a, int b, char mode)
 {
-	t_stack *smallest;
-
-	smallest = stack;
-	while(stack)
+	if (a > b)
 	{
-		if (stack->num < smallest->num)
-			smallest = stack;
-		stack = stack->next;
+		if (mode == 'l')
+			return (1);
+		else
+			return (0);
 	}
-	return (smallest);
+	else
+	{
+		if (mode == 's')
+			return (1);
+		else
+			return (0);
+	}
 }
 
-t_stack	*ft_find_target_btoa(t_stack *stack_a, int nbr)
+t_stack	*ft_stack_most(t_stack *stack, char mode, char item)
+{
+	t_stack	*most;
+
+	most = stack;
+	while (stack)
+	{
+		if (item == 'n')
+		{
+			if (ft_compare(stack->num, most->num, mode))
+				most = stack;
+		}
+		else if (item == 'c')
+		{
+			if (ft_compare(stack->cost.total, most->cost.total, mode))
+				most = stack;
+		}
+		stack = stack->next;
+	}
+	return (most);
+}
+
+int	ft_find_target_atob(t_stack *stack_b, int nbr)
 {
 	t_stack	*target;
 	t_stack	*curr;
-	
+
 	target = NULL;
-	curr = stack_a;
+	curr = stack_b;
 	while (curr)
 	{
-		ft_printf("%d %d\n", nbr, curr->num);
-		if (curr->num > nbr)
+		if (curr->num < nbr)
 		{
-			if (curr->num < target->num || !target)
+			if (!target)
+				target = curr;
+			else if (curr->num > target->num)
 				target = curr;
 		}
 		curr = curr->next;
 	}
 	if (!target)
-		target = ft_stack_smallest(stack_a);
-	return (target);
+		target = ft_stack_most(stack_b, 'l', 'n');
+	return (target->cost.own);
 }
 
-void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack)
+int	ft_find_target_btoa(t_stack *stack_a, int nbr)
 {
-	int		i;
-	int 	size;
-	int 	mid;
 	t_stack	*target;
+	t_stack	*curr;
 
+	target = NULL;
+	curr = stack_a;
+	while (curr)
+	{
+		if (curr->num > nbr)
+		{
+			if (!target)
+				target = curr;
+			else if (curr->num < target->num)
+				target = curr;
+		}
+		curr = curr->next;
+	}
+	if (!target)
+		target = ft_stack_most(stack_a, 's', 'n');
+	return (target->cost.own);
+}
+
+void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
+{
+	int	dst_cost;
+
+	ft_stack_rotate_cost(src_stack);
 	ft_stack_rotate_cost(dst_stack);
-	i = 0;
-	size = ft_stack_size(src_stack);
-	mid = size / 2;
 	while (src_stack)
 	{
-		target = ft_find_target_btoa(dst_stack, src_stack->num);
-		if (i <= mid)
-			src_stack->cost = i;
-		else
-			src_stack->cost = i - size;
+		if (src == 'a')
+			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
+		else if (src == 'b')
+			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
+		src_stack->cost.dst = dst_cost;
+		src_stack->cost.total = abs(src_stack->cost.own) + abs(dst_cost);
+		ft_printf("%d total cost : %d\n", src_stack->num, src_stack->cost.total);
 		src_stack = src_stack->next;
-		i++;
 	}
 	return ;
 }
 
 void	ft_b_to_a(t_stack **stacks)
 {
+	t_stack	*cheapest;
+	
 	while (stacks[1])
 	{
-		ft_stack_total_cost(stacks[1], stacks[0]);
+		ft_stack_total_cost(stacks[1], stacks[0], 'b');
 		ft_print_both_stacks(stacks);
+		cheapest = ft_stack_most(stacks[1], 's', 'c');
 		op_pa(stacks);
 	}
 }

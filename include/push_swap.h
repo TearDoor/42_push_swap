@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/06 16:36:18 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:31:53 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,20 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
-/* cost stores number of rotations needed to be on top of stack */
+/* stores number of rotations needed to be on top of stack */
+typedef struct s_cost
+{
+	int	own;
+	int	dst;
+	int	total;
+}	t_cost;
+
 typedef struct s_stack
 {
 	int				num;
-	int				cost;
+	t_cost			cost;
 	struct s_stack	*next;
 }	t_stack;
-
 
 t_stack	*init_stack(int argc, char **argv);
 int		*find_lis(int *num, int num_size, int *lis_max);

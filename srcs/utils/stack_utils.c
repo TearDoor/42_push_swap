@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:14:05 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/05 22:22:43 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:52:38 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*ft_stacknew(int n)
 	if (!new)
 		ft_error();
 	new->num = n;
-	new->cost = 0;
+	new->cost = (t_cost){0, 0, 0};
 	new->next = NULL;
 	return (new);
 }
@@ -72,7 +72,7 @@ void	ft_printstack(t_stack *stack)
 	curr = stack;
 	while (curr)
 	{
-		ft_printf("%d : %d\n", curr->num, curr->cost);
+		ft_printf("%d : %d\n", curr->num, curr->cost.own_cost);
 		curr = curr->next;
 	}
 }

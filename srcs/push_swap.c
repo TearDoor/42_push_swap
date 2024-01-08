@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/08 21:35:44 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/09 02:49:35 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
 	while (src_stack)
 	{
 		if (src == 'a')
-			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
+			dst_cost = ft_find_target_atob(dst_stack, src_stack->num);
 		else if (src == 'b')
 			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
 		src_stack->cost.dst = dst_cost;
@@ -177,30 +177,48 @@ void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
 	return ;
 }
 
+int	ft_rotate_ab(int rot, char s, t_stack **stacks)
+{
+	while (rot != 0)
+	{
+		if (rot > 0)
+		{
+			if (s == 'a')
+				op_ra(stacks);
+			else if (s == 'b')
+				op_rb(stacks);
+			rot -= 1;
+		}
+		else if (rot < 0)
+		{
+			if (s == 'a')
+				op_rra(stacks);
+			else if (s == 'b')
+				op_rrb(stacks);
+			rot += 1;
+		}
+	}
+	return rot;
+}
+
 void	ft_rotate_to_top(int rot_a, int rot_b, t_stack **stacks)
 {
 	while (!(rot_a == 0 && rot_b == 0))
 	{
-		if (rot_a > 0)
+		if (rot_a > 0 && rot_b > 0)
 		{
-			op_ra(stacks);
+			op_rr(stacks);
 			rot_a -= 1;
-		}
-		else if (rot_a < 0)
-		{
-			op_rra(stacks);
-			rot_a += 1;
-		}
-		if (rot_b > 0)
-		{
-			op_rb(stacks);
 			rot_b -= 1;
 		}
-		else if (rot_b < 0)
+		else if (rot_a < 0 && rot_b < 0)
 		{
-			op_rrb(stacks);
+			op_rrr(stacks);
+			rot_a += 1;
 			rot_b += 1;
 		}
+		rot_a = ft_rotate_ab(rot_a, 'a', stacks);
+		rot_b = ft_rotate_ab(rot_b, 'b', stacks);
 	}
 }
 
@@ -217,6 +235,22 @@ void	ft_b_to_a(t_stack **stacks)
 	}
 }
 
+void	ft_a_to_b(t_stack **stacks)
+{
+	int		size;
+	t_stack	*cheapest;
+	
+	size = ft_stack_size(stacks[0]);
+	while (size > 3)
+	{
+		ft_stack_total_cost(stacks[0], stacks[1], 'a');
+		cheapest = ft_stack_most(stacks[0], 's', 'c');
+		ft_rotate_to_top(cheapest->cost.own, cheapest->cost.dst, stacks);
+		op_pb(stacks);
+		size -= 1;
+	}
+}
+
 void	sort_big(t_stack **stack_pair, int stk_size)
 {
 	int		i;
@@ -229,6 +263,7 @@ void	sort_big(t_stack **stack_pair, int stk_size)
 		stk_size -= 1;
 		i++;
 	}
+	ft_a_to_b(stack_pair);
 	sort_three(&stack_pair[0]);
 	ft_b_to_a(stack_pair);
 	smallest = ft_stack_most(stack_pair[0], 's', 'n');

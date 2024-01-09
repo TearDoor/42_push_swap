@@ -1,3 +1,3 @@
-ARG="1 4 5 2 3";
+ARG=$(<test.txt);
 ./push_swap $ARG | ./checker_linux $ARG;
 ./push_swap $ARG > result.txt

@@ -217,8 +217,11 @@ void	ft_rotate_to_top(int rot_a, int rot_b, t_stack **stacks)
 			rot_a += 1;
 			rot_b += 1;
 		}
-		rot_a = ft_rotate_ab(rot_a, 'a', stacks);
-		rot_b = ft_rotate_ab(rot_b, 'b', stacks);
+		else
+		{
+			rot_a = ft_rotate_ab(rot_a, 'a', stacks);
+			rot_b = ft_rotate_ab(rot_b, 'b', stacks);
+		}
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:32:13 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/09 20:35:58 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/10 01:19:01 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	sort_big(t_stack **stack_pair, int stk_size)
 	num = stack_to_array(stack_pair[0], stk_size);
 	lis = find_lis(num, stk_size, &lis_size);
 	ft_a_to_b(stack_pair, lis, lis_size);
-	if (stk_size == 3)
+	//if (stk_size == 3)
 		sort_three(stack_pair);
 	ft_b_to_a(stack_pair);
 	smallest = ft_stack_most(stack_pair[0], 's', 'n');

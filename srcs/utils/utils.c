@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:58:42 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/09 17:45:11 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/10 01:24:33 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ int	ft_compare(int a, int b, char mode)
 		else
 			return (0);
 	}
-	else
+	else if (a < b)
 	{
 		if (mode == 's')
 			return (1);
 		else
 			return (0);
 	}
+	else
+		return (0);
 }
 
 int	ft_array_search(int *arr, int size, int num)

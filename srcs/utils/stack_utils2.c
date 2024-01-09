@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:29:16 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/09 15:34:40 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/10 02:21:44 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,26 @@ int	ft_find_target_btoa(t_stack *stack_a, int nbr)
 	return (target->cost.own);
 }
 
+int	ft_cost_total(int cost1, int cost2)
+{
+	if (cost1 > 0 && cost2 > 0)
+	{
+		if (cost1 > cost2)
+			return (cost1);
+		else
+			return (cost2);
+	}
+	else if (cost1 < 0 && cost2 < 0)
+	{
+		if (cost1 < cost2)
+			return (ft_abs(cost1));
+		else
+			return (ft_abs(cost2));
+	}
+	else
+		return (ft_abs(cost1) + ft_abs(cost2));
+}
+
 void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
 {
 	int	dst_cost;
@@ -116,7 +136,7 @@ void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
 		else if (src == 'b')
 			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
 		src_stack->cost.dst = dst_cost;
-		src_stack->cost.total = ft_abs(src_stack->cost.own) + ft_abs(dst_cost);
+		src_stack->cost.total = ft_cost_total(src_stack->cost.own, dst_cost);
 		src_stack = src_stack->next;
 	}
 	return ;

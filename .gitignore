@@ -57,3 +57,6 @@ push_swap
 checker_Mac
 test.sh
 srcs/checker_linux
+result.txt
+.gitignore
+.gitignore

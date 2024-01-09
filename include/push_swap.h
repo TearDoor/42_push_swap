@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/08 20:31:53 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:35:26 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ typedef struct s_stack
 t_stack	*init_stack(int argc, char **argv);
 int		*find_lis(int *num, int num_size, int *lis_max);
 int		ft_stack_size(t_stack *stack);
+void	ft_stack_rotate_cost(t_stack *stack);
+t_stack	*ft_stack_most(t_stack *stack, char mode, char item);
+void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src);
 
 /* functions for initializing and clearing stack */
 t_stack	*ft_stacknew(int n);
@@ -61,6 +64,9 @@ void	op_rra(t_stack **stacks);
 void	op_rrb(t_stack **stacks);
 void	op_rrr(t_stack **stacks);
 
+void	sort_three(t_stack **stacks);
+void	sort_big(t_stack **stack_pair, int stk_size);
+
 /* some functions for debugging */
 void	ft_printstack(t_stack *stack);
 void	ft_print_both_stacks(t_stack **stacks);
@@ -68,5 +74,6 @@ void	ft_print_both_stacks(t_stack **stacks);
 /* utility functions */
 void	ft_error(void);
 int		ft_abs(int num);
+int		ft_compare(int a, int b, char mode);
 
 #endif

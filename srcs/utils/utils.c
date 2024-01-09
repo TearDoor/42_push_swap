@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:58:42 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/06 16:34:53 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:30:27 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,22 @@ int	ft_abs(int num)
 		return (num * -1);
 	else
 		return (num);
+}
+
+int	ft_compare(int a, int b, char mode)
+{
+	if (a > b)
+	{
+		if (mode == 'l')
+			return (1);
+		else
+			return (0);
+	}
+	else
+	{
+		if (mode == 's')
+			return (1);
+		else
+			return (0);
+	}
 }

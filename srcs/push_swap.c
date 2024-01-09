@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/09 15:34:23 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:18:03 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	sort(t_stack *stack)
 		sort_three(stack_pair);
 	else
 		sort_big(stack_pair, stk_size);
+	ft_stackclear(&stack_pair[0]);
 	return ;
 }
 
@@ -35,10 +36,15 @@ int	main(int argc, char **argv)
 
 	stack_a = init_stack(argc, argv);
 	if (!stack_a || ft_stack_isdup(stack_a))
+	{
+		ft_stackclear(&stack_a);
 		ft_error();
+	}
 	if (ft_stack_issorted(stack_a))
+	{
+		ft_stackclear(&stack_a);
 		return (0);
+	}
 	sort(stack_a);
-	ft_stackclear(&stack_a);
 	return (0);
 }

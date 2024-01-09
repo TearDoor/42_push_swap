@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:32:13 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/09 15:37:58 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:35:58 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,20 @@ static void	ft_b_to_a(t_stack **stacks)
 	}
 }
 
-static void	ft_a_to_b(t_stack **stacks)
+static void	ft_a_to_b(t_stack **stacks, int *lis, int lis_size)
 {
 	int		size;
+	int		max_size;
 	t_stack	*cheapest;
 
 	size = ft_stack_size(stacks[0]);
+	max_size = 3;
+	if (lis_size > max_size)
+		max_size = lis_size;
 	while (size > 3)
 	{
 		ft_stack_total_cost(stacks[0], stacks[1], 'a');
+		cheapest = ft_stack_a_cheapest(stacks[0], lis, lis_size);
 		cheapest = ft_stack_most(stacks[0], 's', 'c');
 		ft_rotate_to_top(cheapest->cost.own, cheapest->cost.dst, stacks);
 		op_pb(stacks);
@@ -92,6 +97,9 @@ static void	ft_a_to_b(t_stack **stacks)
 void	sort_big(t_stack **stack_pair, int stk_size)
 {
 	int		i;
+	int		*num;
+	int		*lis;
+	int		lis_size;
 	t_stack	*smallest;
 
 	i = 0;
@@ -101,11 +109,16 @@ void	sort_big(t_stack **stack_pair, int stk_size)
 		stk_size -= 1;
 		i++;
 	}
-	ft_a_to_b(stack_pair);
-	sort_three(&stack_pair[0]);
+	num = stack_to_array(stack_pair[0], stk_size);
+	lis = find_lis(num, stk_size, &lis_size);
+	ft_a_to_b(stack_pair, lis, lis_size);
+	if (stk_size == 3)
+		sort_three(stack_pair);
 	ft_b_to_a(stack_pair);
 	smallest = ft_stack_most(stack_pair[0], 's', 'n');
 	ft_stack_rotate_cost(stack_pair[0]);
 	ft_rotate_to_top(smallest->cost.own, 0, stack_pair);
+	free(num);
+	free(lis);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:35:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/27 18:57:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:17:40 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	*create_lis(int *num, int num_size, int *lis_len, int lis_max)
 				break ;
 		}
 	}
+	free(lis_len);
 	return (lis);
 }
 
@@ -83,6 +84,7 @@ int	*find_lis(int *num, int num_size, int *lis_max)
 	int	i;
 	int	j;
 
+	*lis_max = 1;
 	lis_len = lis_len_init(num_size);
 	i = 0;
 	while (i < num_size)
@@ -100,7 +102,6 @@ int	*find_lis(int *num, int num_size, int *lis_max)
 		}
 		i++;
 	}
-	free(lis_len);
 	return (create_lis(num, num_size, lis_len, *lis_max));
 }
 /*

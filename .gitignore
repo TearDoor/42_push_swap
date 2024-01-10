@@ -59,3 +59,4 @@ test.sh
 srcs/checker_linux
 result.txt
 push_swap_tester
+traces.txt

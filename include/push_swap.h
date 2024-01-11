@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/10 15:13:11 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:42:35 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		*find_lis(int *num, int num_size, int *lis_max);
 int		ft_stack_size(t_stack *stack);
 void	ft_stack_rotate_cost(t_stack *stack);
 t_stack	*ft_stack_most(t_stack *stack, char mode, char item);
-void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src);
+void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack);
 
 /* functions for initializing and clearing stack */
 t_stack	*ft_stacknew(int n);
@@ -65,6 +65,7 @@ void	op_rra(t_stack **stacks);
 void	op_rrb(t_stack **stacks);
 void	op_rrr(t_stack **stacks);
 
+/* sorting for different sizes */
 void	sort_three(t_stack **stacks);
 void	sort_big(t_stack **stack_pair, int stk_size);
 

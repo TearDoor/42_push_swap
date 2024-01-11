@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:32:13 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/10 15:12:22 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:41:57 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,48 +66,41 @@ static void	ft_b_to_a(t_stack **stacks)
 
 	while (stacks[1])
 	{
-		ft_stack_total_cost(stacks[1], stacks[0], 'b');
+		ft_stack_total_cost(stacks[1], stacks[0]);
 		cheapest = ft_stack_most(stacks[1], 's', 'c');
 		ft_rotate_to_top(cheapest->cost.dst, cheapest->cost.own, stacks);
 		op_pa(stacks);
 	}
 }
 
-static void	ft_a_to_b(t_stack **stacks)
+static void	ft_a_to_b(t_stack **stacks, int *size, int *lis, int lis_size)
 {
-	int		size;
-	t_stack	*cheapest;
+	int	max_size;
 
-	size = ft_stack_size(stacks[0]);
-	while (size > 3)
+	max_size = 3;
+	if (lis_size > max_size)
+		max_size = lis_size;
+	while (*size > max_size)
 	{
-		ft_stack_total_cost(stacks[0], stacks[1], 'a');
-		cheapest = ft_stack_most(stacks[0], 's', 'c');
-		ft_rotate_to_top(cheapest->cost.own, cheapest->cost.dst, stacks);
+		while (ft_array_search(lis, lis_size, (stacks[0])->num))
+			op_ra(stacks);
 		op_pb(stacks);
-		size -= 1;
+		*size -= 1;
 	}
 }
 
 void	sort_big(t_stack **stack_pair, int stk_size)
 {
-	int		i;
 	int		*num;
 	int		*lis;
 	int		lis_size;
 	t_stack	*smallest;
 
-	i = 0;
-	while (stk_size > 3 && !ft_stack_issorted(stack_pair[0]) && i < 2)
-	{
-		op_pb(stack_pair);
-		stk_size -= 1;
-		i++;
-	}
 	num = stack_to_array(stack_pair[0], stk_size);
 	lis = find_lis(num, stk_size, &lis_size);
-	ft_a_to_b(stack_pair);
-	sort_three(stack_pair);
+	ft_a_to_b(stack_pair, &stk_size, lis, lis_size);
+	if (stk_size == 3)
+		sort_three(stack_pair);
 	ft_b_to_a(stack_pair);
 	smallest = ft_stack_most(stack_pair[0], 's', 'n');
 	ft_stack_rotate_cost(stack_pair[0]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:29:16 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/10 02:21:44 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:42:21 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,29 +57,6 @@ t_stack	*ft_stack_most(t_stack *stack, char mode, char item)
 	return (most);
 }
 
-int	ft_find_target_atob(t_stack *stack_b, int nbr)
-{
-	t_stack	*target;
-	t_stack	*curr;
-
-	target = NULL;
-	curr = stack_b;
-	while (curr)
-	{
-		if (curr->num < nbr)
-		{
-			if (!target)
-				target = curr;
-			else if (curr->num > target->num)
-				target = curr;
-		}
-		curr = curr->next;
-	}
-	if (!target)
-		target = ft_stack_most(stack_b, 'l', 'n');
-	return (target->cost.own);
-}
-
 int	ft_find_target_btoa(t_stack *stack_a, int nbr)
 {
 	t_stack	*target;
@@ -123,7 +100,7 @@ int	ft_cost_total(int cost1, int cost2)
 		return (ft_abs(cost1) + ft_abs(cost2));
 }
 
-void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
+void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack)
 {
 	int	dst_cost;
 
@@ -131,10 +108,7 @@ void	ft_stack_total_cost(t_stack *src_stack, t_stack *dst_stack, char src)
 	ft_stack_rotate_cost(dst_stack);
 	while (src_stack)
 	{
-		if (src == 'a')
-			dst_cost = ft_find_target_atob(dst_stack, src_stack->num);
-		else if (src == 'b')
-			dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
+		dst_cost = ft_find_target_btoa(dst_stack, src_stack->num);
 		src_stack->cost.dst = dst_cost;
 		src_stack->cost.total = ft_cost_total(src_stack->cost.own, dst_cost);
 		src_stack = src_stack->next;

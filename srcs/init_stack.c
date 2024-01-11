@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:12:27 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/10 17:33:40 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:40:16 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_atoi_check(char *s)
 		s++;
 	}
 	if (!ft_isdigit(*s))
-			ft_error();
+		ft_error();
 	while (*s)
 	{
 		if (!ft_isdigit(*s))

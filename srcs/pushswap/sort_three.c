@@ -6,11 +6,11 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:24:17 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/11 16:26:39 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:10:56 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 /* returns the index of the biggest number in a stack */
 static int	max_num_index(t_stack *stack)

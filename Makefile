@@ -3,33 +3,44 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+         #
+#    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:45:26 by tkok-kea          #+#    #+#              #
-#    Updated: 2023/12/07 00:00:42 by tkok-kea         ###   ########.fr        #
+#    Updated: 2024/01/11 21:11:18 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	push_swap
+NAME	= push_swap
 
-SRCS =  $(wildcard srcs/*.c srcs/utils/*.c)
+BONUS	= checker
 
-OBJS = ${SRCS:.c=.o}
+SRCS	= $(wildcard srcs/*.c srcs/pushswap/*.c srcs/utils/*.c)
 
-LIBFT = ./libft/libft.a
+OBJS	= ${SRCS:.c=.o}
 
-CC =	gcc
+B_SRCS	= $(wildcard srcs/*.c srcs/checker/*.c srcs/utils/*.c)
 
-CFLAGS =	-Wall -Werror -Wextra
+B_OBJS	= ${B_SRCS:.c=.o}
+
+LIBFT	= ./libft/libft.a
+
+CC		= gcc
+
+CFLAGS	= -Wall -Werror -Wextra
+
+RM		= rm -rf
 
 SANITIZE	= -fsanitize=address -g
-
-RM =	rm -rf
 
 all:		${NAME}
 
 ${NAME}: 	${OBJS} ${LIBFT}
 			${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+
+bonus:		${BONUS}
+
+${BONUS}:	${B_OBJS} ${LIBFT}
+			${CC} ${CFLAGS} ${B_OBJS} ./libft/libft.a -o ${BONUS}
 
 %.o:		%.c
 			$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
@@ -46,7 +57,7 @@ clean:
 
 fclean:		clean
 			@echo "Removing push_swap"
-			${RM} ${NAME}
+			${RM} ${NAME} ${BONUS}
 			@echo "Everthing cleaned"
 
 re:			fclean all

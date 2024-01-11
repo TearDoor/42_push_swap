@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:29:16 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/11 16:42:21 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:51:36 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_stack_rotate_cost(t_stack *stack)
 	return ;
 }
 
+/* finds the node in a stack with
+largest or smallest num or total cost*/
 t_stack	*ft_stack_most(t_stack *stack, char mode, char item)
 {
 	t_stack	*most;
@@ -57,6 +59,8 @@ t_stack	*ft_stack_most(t_stack *stack, char mode, char item)
 	return (most);
 }
 
+/* returns the cost to rotate to top
+of the smallest number that is larger than nbr*/
 int	ft_find_target_btoa(t_stack *stack_a, int nbr)
 {
 	t_stack	*target;

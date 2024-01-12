@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
+#    By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:45:26 by tkok-kea          #+#    #+#              #
-#    Updated: 2024/01/11 21:11:18 by tkok-kea         ###   ########.fr        #
+#    Updated: 2024/01/13 01:47:32 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ all:		${NAME}
 ${NAME}: 	${OBJS} ${LIBFT}
 			${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
 
-bonus:		${BONUS}
+bonus:		${NAME} ${BONUS}
 
 ${BONUS}:	${B_OBJS} ${LIBFT}
 			${CC} ${CFLAGS} ${B_OBJS} ./libft/libft.a -o ${BONUS}

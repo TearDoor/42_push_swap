@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:12:27 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/11 16:40:16 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/12 19:21:50 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ static void	free_strings(char **str)
 }
 
 /*splits arguments passed as a string into numbers */
-t_stack	*split_string(char *argv)
+t_stack	*split_string(t_stack *stack_a, char *argv)
 {
 	int		i;
 	char	**n_str;
 	int		new_num;
-	t_stack	*stack_a;
 
-	stack_a = NULL;
 	n_str = ft_split(argv, ' ');
 	i = 0;
 	while (n_str[i])
@@ -80,20 +78,16 @@ t_stack	*init_stack(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	int		i;
-	int		new_num;
 
 	stack_a = NULL;
 	if (argc < 2)
 		ft_error();
-	if (argc == 2)
-		stack_a = split_string(argv[1]);
 	else
 	{
 		i = 1;
 		while (argv[i])
 		{
-			new_num = ft_atoi_check(argv[i]);
-			ft_stackaddback(&stack_a, ft_stacknew(new_num));
+			stack_a = split_string(stack_a, argv[i]);
 			i++;
 		}
 	}

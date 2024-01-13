@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:12:27 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/12 19:21:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:24:42 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_stack	*init_stack(int argc, char **argv)
 
 	stack_a = NULL;
 	if (argc < 2)
-		ft_error();
+		exit(0);
 	else
 	{
 		i = 1;

@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/08 15:01:24 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:12:46 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	ft_stack_isdup(t_stack *stack)
 		while (temp)
 		{
 			if (temp->num == stack->num)
-			{
-				ft_printf("%d repeat\n", temp->num);
 				return (1);
-			}
 			temp = temp->next;
 		}
 		stack = stack->next;

@@ -6,7 +6,7 @@
 #    By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 20:26:50 by tkok-kea          #+#    #+#              #
-#    Updated: 2023/12/02 16:24:50 by tkok-kea         ###   ########.fr        #
+#    Updated: 2024/01/13 22:00:34 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 		  ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
 		  ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c\
 		  ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c\
-		  ft_putendl_fd.c ft_putnbr_fd.c get_next_line.c\
+		  ft_putendl_fd.c ft_putnbr_fd.c get_next_line.c ft_strcmp.c\
 
 OBJS	= $(SRC:.c=.o)
 

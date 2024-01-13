@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:57:59 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/12 14:43:53 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:15:28 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	sort(t_stack *stack)
 	stack_pair[1] = NULL;
 	stk_size = ft_stack_size(stack);
 	if (stk_size == 2)
-		op_sa(&stack_pair[0]);
+		op_sa(&stack_pair[0], 1);
 	else if (stk_size == 3)
 		sort_three(stack_pair);
 	else

@@ -6,7 +6,7 @@
 #    By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:45:26 by tkok-kea          #+#    #+#              #
-#    Updated: 2024/01/13 01:47:32 by tkok-kea         ###   ########.fr        #
+#    Updated: 2024/01/14 02:37:49 by tkok-kea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,5 +61,7 @@ fclean:		clean
 			@echo "Everthing cleaned"
 
 re:			fclean all
+
+reb:		re bonus
 
 .PHONY:	all clean fclean re

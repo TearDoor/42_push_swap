@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:12:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/13 22:12:39 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:13:42 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,28 @@ int	swap(t_stack **stack)
 	return (0);
 }
 
-void	op_sa(t_stack **stacks)
+void	op_sa(t_stack **stacks, int print)
 {
 	if (swap(&stacks[0]) == -1)
 		return ;
-	ft_putendl_fd("sa", 1);
+	if (print)
+		ft_putendl_fd("sa", 1);
 }
 
-void	op_sb(t_stack **stacks)
+void	op_sb(t_stack **stacks, int print)
 {
 	if (swap(&stacks[1]) == -1)
 		return ;
-	ft_putendl_fd("sb", 1);
+	if (print)
+		ft_putendl_fd("sb", 1);
 }
 
-void	op_ss(t_stack **stacks)
+void	op_ss(t_stack **stacks, int print)
 {
 	if (!stacks[0] || !stacks[0]->next || !stacks[1] || !stacks[1]->next)
 		return ;
 	swap(&stacks[0]);
 	swap(&stacks[1]);
-	ft_putendl_fd("ss", 1);
+	if (print)
+		ft_putendl_fd("ss", 1);
 }

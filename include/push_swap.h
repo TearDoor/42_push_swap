@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/13 01:45:24 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:09:50 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ void	sort_three(t_stack **stacks);
 void	sort_big(t_stack **stack_pair, int stk_size);
 
 /* operations */
-void	op_sa(t_stack **stacks);
-void	op_sb(t_stack **stacks);
-void	op_ss(t_stack **stacks);
-void	op_pa(t_stack **stacks);
-void	op_pb(t_stack **stacks);
-void	op_ra(t_stack **stacks);
-void	op_rb(t_stack **stacks);
-void	op_rr(t_stack **stacks);
-void	op_rra(t_stack **stacks);
-void	op_rrb(t_stack **stacks);
-void	op_rrr(t_stack **stacks);
+void	op_sa(t_stack **stacks, int print);
+void	op_sb(t_stack **stacks, int print);
+void	op_ss(t_stack **stacks, int print);
+void	op_pa(t_stack **stacks, int print);
+void	op_pb(t_stack **stacks, int print);
+void	op_ra(t_stack **stacks, int print);
+void	op_rb(t_stack **stacks, int print);
+void	op_rr(t_stack **stacks, int print);
+void	op_rra(t_stack **stacks, int print);
+void	op_rrb(t_stack **stacks, int print);
+void	op_rrr(t_stack **stacks, int print);
 
 /* utility functions */
 void	ft_error(void);

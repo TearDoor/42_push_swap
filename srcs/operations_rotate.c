@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 20:53:51 by tkok-kea          #+#    #+#             */
-/*   Updated: 2023/12/13 17:15:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:14:53 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,28 @@ int	rotate(t_stack **stack)
 	return (0);
 }
 
-void	op_ra(t_stack **stacks)
+void	op_ra(t_stack **stacks, int print)
 {
 	if (rotate(&stacks[0]) == -1)
 		return ;
-	ft_printf("ra\n");
+	if (print)
+		ft_putendl_fd("ra", 1);
 }
 
-void	op_rb(t_stack **stacks)
+void	op_rb(t_stack **stacks, int print)
 {
 	if (rotate(&stacks[1]) == -1)
 		return ;
-	ft_printf("rb\n");
+	if (print)
+		ft_putendl_fd("rb", 1);
 }
 
-void	op_rr(t_stack **stacks)
+void	op_rr(t_stack **stacks, int print)
 {
 	if (!stacks[0] || !stacks[0]->next || !stacks[1] || !stacks[1]->next)
 		return ;
 	rotate(&stacks[0]);
 	rotate(&stacks[1]);
-	ft_putendl_fd("rr", 1);
+	if (print)
+		ft_putendl_fd("rr", 1);
 }

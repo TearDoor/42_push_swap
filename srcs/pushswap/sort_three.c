@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:24:17 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/11 21:10:56 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:16:21 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	sort_three(t_stack **stacks)
 
 	max_i = max_num_index(stacks[0]);
 	if (max_i == 0)
-		op_ra(stacks);
+		op_ra(stacks, 1);
 	else if (max_i == 1)
-		op_rra(stacks);
+		op_rra(stacks, 1);
 	if (!ft_stack_issorted(stacks[0]))
-		op_sa(stacks);
+		op_sa(stacks, 1);
 }

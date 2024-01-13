@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:32:13 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/11 21:10:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:16:05 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ static int	ft_rotate_ab(int rot, char s, t_stack **stacks)
 		if (rot > 0)
 		{
 			if (s == 'a')
-				op_ra(stacks);
+				op_ra(stacks, 1);
 			else if (s == 'b')
-				op_rb(stacks);
+				op_rb(stacks, 1);
 			rot -= 1;
 		}
 		else if (rot < 0)
 		{
 			if (s == 'a')
-				op_rra(stacks);
+				op_rra(stacks, 1);
 			else if (s == 'b')
-				op_rrb(stacks);
+				op_rrb(stacks, 1);
 			rot += 1;
 		}
 	}
@@ -42,13 +42,13 @@ static void	ft_rotate_to_top(int rot_a, int rot_b, t_stack **stacks)
 	{
 		if (rot_a > 0 && rot_b > 0)
 		{
-			op_rr(stacks);
+			op_rr(stacks, 1);
 			rot_a -= 1;
 			rot_b -= 1;
 		}
 		else if (rot_a < 0 && rot_b < 0)
 		{
-			op_rrr(stacks);
+			op_rrr(stacks, 1);
 			rot_a += 1;
 			rot_b += 1;
 		}
@@ -69,7 +69,7 @@ static void	ft_b_to_a(t_stack **stacks)
 		ft_stack_total_cost(stacks[1], stacks[0]);
 		cheapest = ft_stack_most(stacks[1], 's', 'c');
 		ft_rotate_to_top(cheapest->cost.dst, cheapest->cost.own, stacks);
-		op_pa(stacks);
+		op_pa(stacks, 1);
 	}
 }
 
@@ -83,8 +83,8 @@ static void	ft_a_to_b(t_stack **stacks, int *size, int *lis, int lis_size)
 	while (*size > max_size)
 	{
 		while (ft_array_search(lis, lis_size, (stacks[0])->num))
-			op_ra(stacks);
-		op_pb(stacks);
+			op_ra(stacks, 1);
+		op_pb(stacks, 1);
 		*size -= 1;
 	}
 }

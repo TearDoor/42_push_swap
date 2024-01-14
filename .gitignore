@@ -62,3 +62,6 @@ push_swap_tester
 traces.txt
 Push-Swap-Tester
 checker
+result.txt
+test
+test.c

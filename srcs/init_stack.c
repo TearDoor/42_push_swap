@@ -6,7 +6,7 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:12:27 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/13 14:24:42 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:32:45 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ t_stack	*split_string(t_stack *stack_a, char *argv)
 	int		new_num;
 
 	n_str = ft_split(argv, ' ');
+	if (!*n_str)
+		ft_error();
 	i = 0;
 	while (n_str[i])
 	{

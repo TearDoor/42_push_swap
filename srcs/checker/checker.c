@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 20:37:56 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/14 02:37:28 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:55:05 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_ops(char *ops, t_stack **stack_a)
 
 	stack_pair[0] = *stack_a;
 	stack_pair[1] = NULL;
-	while (ops != NULL)
+	while (ops != NULL && *ops != '\0')
 	{
 		exec_ops(ops, stack_pair);
 		free(ops);
@@ -72,9 +72,6 @@ int	main(int argc, char **argv)
 		ft_error();
 	}
 	ops = get_next_line(0);
-	if (ft_stack_issorted(stack_a) && ops != NULL)
-		ft_printf("KO\n");
-	else
-		check_ops(ops, &stack_a);
+	check_ops(ops, &stack_a);
 	return (0);
 }

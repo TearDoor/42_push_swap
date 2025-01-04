@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:58:42 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/10 01:24:33 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:11:18 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	ft_error(void)
 {
@@ -46,15 +46,23 @@ int	ft_compare(int a, int b, char mode)
 		return (0);
 }
 
-int	ft_array_search(int *arr, int size, int num)
+int	ft_arr_binary_search(int *arr, int size, int num)
 {
-	int	i;
+	int	low;
+	int	high;
+	int	mid;
 
-	i = 0;
-	while (i < size)
+	low = 0;
+	high = size - 1;
+	while (low <= high)
 	{
-		if (arr[i++] == num)
+		mid = (low + (high - low) / 2);
+		if (arr[mid] == num)
 			return (1);
+		if (arr[mid] < num)
+			low = mid + 1;
+		else
+			high = mid - 1;
 	}
 	return (0);
 }

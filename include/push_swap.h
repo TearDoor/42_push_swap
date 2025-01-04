@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:59:25 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/14 02:09:50 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:15:40 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "libft.h"
 
 /* stores number of rotations needed to be on top of stack */
 typedef struct s_cost
@@ -33,6 +33,12 @@ typedef struct s_stack
 	t_cost			cost;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct s_operations
+{
+	char	*name;
+	void	(*func)(t_stack **, int);
+}	t_operations;
 
 int		*find_lis(int *num, int num_size, int *lis_max);
 int		*stack_to_array(t_stack *stack, int size);
@@ -72,7 +78,7 @@ void	op_rrr(t_stack **stacks, int print);
 void	ft_error(void);
 int		ft_abs(int num);
 int		ft_compare(int a, int b, char mode);
-int		ft_array_search(int *arr, int size, int num);
+int		ft_arr_binary_search(int *arr, int size, int num);
 
 /* some functions for debugging */
 void	ft_printstack(t_stack *stack);

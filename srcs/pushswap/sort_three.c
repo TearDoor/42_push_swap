@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:24:17 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/14 02:16:21 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:10:55 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 /* returns the index of the biggest number in a stack */
 static int	max_num_index(t_stack *stack)

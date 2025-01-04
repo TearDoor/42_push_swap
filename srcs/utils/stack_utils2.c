@@ -6,11 +6,11 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:29:16 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/11 20:51:36 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:11:22 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 /* calculates the cost for all elements to rotate to the top
 positive means rotations and negative means reverse rotations*/

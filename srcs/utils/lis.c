@@ -6,11 +6,11 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:35:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/09 20:17:40 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:11:10 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 /* find_lis: function to find LIS (Largest Increasing Subsequence)
 in stack A so that we dont need to push those numbers to stack B */

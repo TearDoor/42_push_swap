@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkok-kea <tkok-kea@student.42kl.edu.my     +#+  +:+       +#+        */
+/*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:32:13 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/14 02:16:05 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:10:48 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 static int	ft_rotate_ab(int rot, char s, t_stack **stacks)
 {
@@ -82,7 +82,7 @@ static void	ft_a_to_b(t_stack **stacks, int *size, int *lis, int lis_size)
 		max_size = lis_size;
 	while (*size > max_size)
 	{
-		while (ft_array_search(lis, lis_size, (stacks[0])->num))
+		while (ft_arr_binary_search(lis, lis_size, (stacks[0])->num))
 			op_ra(stacks, 1);
 		op_pb(stacks, 1);
 		*size -= 1;

@@ -6,11 +6,11 @@
 /*   By: tkok-kea <tkok-kea@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:37:52 by tkok-kea          #+#    #+#             */
-/*   Updated: 2024/01/13 14:12:46 by tkok-kea         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:33:16 by tkok-kea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 int	ft_stack_isdup(t_stack *stack)
 {
@@ -34,6 +34,8 @@ int	ft_stack_issorted(t_stack *stack)
 {
 	int	largest;
 
+	if (!stack)
+		return (1);
 	largest = stack->num;
 	while (stack)
 	{
